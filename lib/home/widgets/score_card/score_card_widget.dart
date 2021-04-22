@@ -4,7 +4,12 @@ import 'package:devquiz/home/widgets/chart/chart_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScoreCardWidget extends StatelessWidget {
-  const ScoreCardWidget({Key? key}): super(key: key);
+  final int percent;
+
+  const ScoreCardWidget({
+    Key? key,
+    this.percent = 0
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class ScoreCardWidget extends StatelessWidget {
             children: [
               Expanded(
                 flex: 2,
-                child: ChartWidget()
+                child: ChartWidget(percent: percent)
               ),
               Expanded(
                 flex: 4,

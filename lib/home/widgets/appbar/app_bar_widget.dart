@@ -1,10 +1,13 @@
 import 'package:devquiz/core/app_gradients.dart';
 import 'package:devquiz/core/app_text_styles.dart';
 import 'package:devquiz/home/widgets/score_card/score_card_widget.dart';
+import 'package:devquiz/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends PreferredSize {
-  AppBarWidget(): super(
+  final UserModel user;
+
+  AppBarWidget({required this.user}): super(
     preferredSize: Size.fromHeight(250), 
     child: Container(
       child: Stack(
@@ -20,7 +23,7 @@ class AppBarWidget extends PreferredSize {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text.rich(TextSpan(text: "Olá, ", style: AppTextStyles.title, children: [
-                  TextSpan(text: "PC Motta", style: AppTextStyles.titleBold)
+                  TextSpan(text: user.name, style: AppTextStyles.titleBold)
                 ])),
                 Container(
                   width: 58,
@@ -28,7 +31,7 @@ class AppBarWidget extends PreferredSize {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
-                      image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6WIJp25ZhlhpYnCiu0qe9SwtOrmN6SLzjw&usqp=CAU"))
+                      image: NetworkImage(user.photoUrl))
                   ),
                 )
               ],
@@ -36,7 +39,7 @@ class AppBarWidget extends PreferredSize {
           ),
           Align(
             alignment: Alignment(0, 0.8),
-            child: ScoreCardWidget()
+            child: ScoreCardWidget(percent: user.score)
           )
         ],
       ),
