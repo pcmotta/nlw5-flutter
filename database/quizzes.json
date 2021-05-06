@@ -22,6 +22,24 @@
                         "title": "Nada de mais"
                     }
                 ]
+            },
+            {
+                "title": "Está curtindo o Flutter?",
+                "answers": [
+                    {
+                        "title": "Estou curtindo"
+                    },
+                    {
+                        "title": "Estou amando",
+                        "isRight": true
+                    },
+                    {
+                        "title": "Mais ou menos"
+                    },
+                    {
+                        "title": "Nada de mais"
+                    }
+                ]
             }
         ]
     }
